@@ -21,7 +21,7 @@ public class FollowServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Set<String> followers = userDao.getFollowedUsers((String)req.getSession().getAttribute("login"));
         req.setAttribute("followers",followers);
-        req.getRequestDispatcher("WEB-INF/view/users.jsp");
+        req.getRequestDispatcher("WEB-INF/view/users.jsp").forward(req,resp);
 
     }
 }
